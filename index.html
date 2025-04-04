@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Radial Gauge</title>
+    <style>
+      canvas {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        /* border: 0.25px solid black; */
+      }
+      .w100 {
+        top: 10px;
+      }
+      .w200 {
+        top: 130px;
+      }
+      .w300 {
+        top: 350px;
+      }
+      .w400 {
+        top: 670px;
+      }
+      .w500 {
+        top: 1090px;
+      }
+      .w600 {
+        top: 1610px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas class="w100 radial-gauge" width="100"></canvas>
+    <canvas class="w200 radial-gauge" width="200"></canvas>
+    <canvas class="w300 radial-gauge" width="300"></canvas>
+    <canvas class="w400 radial-gauge" width="400"></canvas>
+    <canvas class="w500 radial-gauge" width="500"></canvas>
+    <canvas class="w600 radial-gauge" width="600"></canvas>
+  </body>
+  <script type="module">
+    import RadialGauge from './dist/radial-gauge.js'
+
+    const speedometerOption = {
+      id: 'speedometer',
+      gaugeSize: 45,
+      offset: 10,
+      min: 0,
+      max: 200,
+      value: 0,
+      ticks: 10,
+      startAngle: 160,
+      endAngle: 20,
+      title: 'Speed',
+      units: 'Km/h',
+      text: 'rgba(0, 200, 200, 1)',
+      empty: 'rgba(0, 200, 200, 0.3)',
+      full: 'rgba(0, 200, 200, 0.8)',
+    }
+
+    const radialGauges = Array.from(document.querySelectorAll('canvas.radial-gauge')).map((canvas) => {
+      return new RadialGauge(canvas, speedometerOption)
+    })
+
+    setInterval(() => {
+      const value = (Math.random() * 200).toFixed(2)
+      radialGauges.forEach((radialGauge) => {
+        radialGauge.setValueAnimated(value, 0.5)
+      })
+    }, 1000)
+  </script>
+</html>

@@ -1,0 +1,43 @@
+{
+  "name": "radial-gauge",
+  "version": "1.0.1",
+  "description": "radial gauge",
+  "main": "dist/radial-gauge.js",
+  "module": "dist/radial-gauge.js",
+  "exports": {
+    "default": "./dist/radial-gauge.js"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "fmt": "prettier --write \"./**/*.{js,html}\"",
+    "build": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hexaforce/radial-gauge.git"
+  },
+  "keywords": [
+    "radial",
+    "gauge"
+  ],
+  "author": "tomokazu tantaka",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hexaforce/radial-gauge/issues"
+  },
+  "homepage": "https://github.com/hexaforce/radial-gauge#readme",
+  "devDependencies": {
+    "prettier": "^3.5.3",
+    "rollup": "^2.79.2",
+    "rollup-plugin-terser": "^7.0.2"
+  },
+  "prettier": {
+    "trailingComma": "all",
+    "bracketSpacing": true,
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": true,
+    "jsxSingleQuote": true,
+    "printWidth": 512
+  }
+}
