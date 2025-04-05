@@ -5,7 +5,7 @@ export default {
   output: {
     file: 'dist/radial-gauge.js',
     format: 'es',
-    name: 'StarCompass',
+    name: 'RadialGauge',
     exports: 'default',
   },
   plugins: [terser()],
